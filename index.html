@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Comment Section</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./sass/style.scss">
+    <script src="./js/script.js" defer></script>
+</head>
+<body>
+    <div class="modal-container">
+        <div class="modal">
+            <h2>Delete comment</h2>
+            <p>Are you sure to delete this comment? This will remove the comment and can't be undone.</p>
+            <div class="btn-wrapper">
+                <button class="no-btn">NO, CANCEL</button>
+                <button class="yes-btn">YES, DELETE</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="comment-section-wrapper">
+        <h1>Comment Section</h1>
+        <div class="all-comments">
+        </div>
+        <div class="send-comment">
+          <form action="">
+            <textarea cols="30" rows="10" placeholder="Add a comment..." maxlength="150"></textarea>
+            <img src="" alt="" class="this-avatar">
+            <button type="submit">SEND</button>
+        </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "comment-section",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean-dist": "rm -rf dist && mkdir dist",
+    "copy-img": "cp -vR ./images ./dist",
+    "init": "npm run clean-dist && npm run copy-img",
+    "start": "npm run init && parcel index.html",
+    "build": "npm run init && parcel build index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.4.1",
+    "parcel-bundler": "^1.12.5"
+  }
+}
