@@ -155,7 +155,6 @@ window.addEventListener('click', function({target}){
       if(replyingTo === commentItem){ // If the comment item that contains the item being replied is the same as the previous one being replied, return;
         const replyingInput = repliesContainer.querySelector('.replying');
         if(replyingInput){ // If the reply input was rendered 
-          console.log('here');
           const textArea = replyingInput.querySelector('textarea');
           textArea.value = `@${getUser(replyItem.dataset.id)} `;
           textArea.focus();
@@ -175,7 +174,6 @@ window.addEventListener('click', function({target}){
       if(replyingTo === commentItem){ // If the comment item that contains the item being replied is the same as the previous one being replied, return;
         const replyingInput = repliesContainer.querySelector('.replying');
         if(replyingInput){ // If the reply input was rendered 
-          console.log('here');
           const textArea = replyingInput.querySelector('textarea');
           textArea.value = `@${getUser(commentItem.dataset.id)} `;
           textArea.focus();
@@ -197,8 +195,6 @@ window.addEventListener('click', function({target}){
   //Send the reply
   if(target.closest('.send-reply')){
     finishReply(target.closest('.response-item'));
-    // replyingTo = null;
-    console.log(data);
   }
 
   //Delete item
@@ -213,7 +209,6 @@ window.addEventListener('click', function({target}){
 
     // its a reply
     if(itemToDelete.classList.contains('response-item')){
-      console.log('reply');
       const commentId = itemToDelete.closest('.comment-wrapper').querySelector('.comment-item').dataset.id;
       const replyId = itemToDelete.dataset.id;
       deleteReply(commentId, replyId);
@@ -221,12 +216,10 @@ window.addEventListener('click', function({target}){
 
     // its a comment
     if(itemToDelete.classList.contains('comment-item')){
-      console.log('comment');
       const commentId = itemToDelete.dataset.id;
       deleteComment(commentId);
     }
 
-    console.log(data);
     renderDeleteItem(itemToDelete);
   }
 
@@ -281,7 +274,6 @@ window.addEventListener('click', function({target}){
       markup = `<span style="color:#5457B6;font-weight: 500;">${username}</span> ${textContent}`;
       const commentId = commentItem.closest('.comment-wrapper').querySelector('.comment-item').dataset.id;
       const replyId = commentItem.dataset.id;
-      console.log(replyId);
       getReply(commentId, replyId).content = textContent;
     }else{
       const id = commentItem.dataset.id;
@@ -309,8 +301,6 @@ window.addEventListener('click', function({target}){
 
     textContainer.style.transition = 'opacity .3s';
     textContainer.style.opacity = 0;
-    
-    console.log(data);
   }
 
   if(target.closest('.plus-icon')){
@@ -352,7 +342,6 @@ window.addEventListener('click', function({target}){
       setTimeout(function(){
         scoreNumber.style.transform = 'scale(1) translateZ(0)';
         scoreNumber.classList.remove('transitioning');
-        console.log('xd');
       }, 150)
     }
     
@@ -360,10 +349,6 @@ window.addEventListener('click', function({target}){
     scoreNumber.style.transform = 'scale(1.3) translateZ(0)';
 
     scoreNumber.classList.add('transitioning');
-
-    timestamp.push(Date.now());
-
-    console.log(timestamp[timestamp.length - 1] - timestamp[timestamp.length - 2]);
   }
 
   if(target.closest('.minus-icon')){
@@ -405,7 +390,6 @@ window.addEventListener('click', function({target}){
       setTimeout(function(){
         scoreNumber.style.transform = 'scale(1) translateZ(0)';
         scoreNumber.classList.remove('transitioning');
-        console.log('xd');
       }, 150)
     }
     
@@ -478,7 +462,6 @@ function finishReply(replyItem){
     user: {...data.currentUser}
   });
 
-  // console.log(repliedComment);
 
   const markup = `<span style="color:#5457B6;font-weight: 500;">${username}</span> ${textContent}`;
 
@@ -580,7 +563,6 @@ function renderComment(comment){
 
   const commentContainer = document.querySelector('.all-comments');
   const commentItemWrapper = elementFromHtml(markup);
-  console.log(commentItemWrapper);
   const commentItem = commentItemWrapper.querySelector('.comment-item');
   // commentItem.dataset.id = generateRandomId();
   commentItem.addEventListener('transitionend', function(){
@@ -684,9 +666,6 @@ function animateComment(commentItem, commentContainer){
       commentItem.style.height = `${realHeight}px`;
       commentItem.style.opacity = 1;
       commentItem.style.padding = '1.5rem'; // Pending to use the right padding based on the viweport width (1rem or 1.5rem);
-
-      // console.log(commentItem);
-      // console.log(commentItem.clientTop);
 
       commentItem.scrollIntoView({
         behavior: 'smooth',
