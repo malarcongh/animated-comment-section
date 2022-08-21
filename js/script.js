@@ -769,23 +769,3 @@ function init(){
 }
 
 init();
-
-
-
-
-
-
-
-/*
-
-Pending
-
-update data on sending comment --> done
-update data on editing comment --> done
-update data on editing reply   --> done
-update data on delete comment  --> done
-update data on scoring comment --> done
-render all data at the start   --> done
-reply on a reply comment
-
-*/
